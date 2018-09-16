@@ -19,8 +19,8 @@ request = pc.makeRequestRSpec()
  
 # Add a raw PC to the request.
 node = request.RawPC("node")
-IMAGE = "http://mirror.fileplanet.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1804.iso"
-node.disk_image = IMAGE
+
+# node.disk_image = "http://mirror.fileplanet.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1804.iso"
 
 # Install and execute a script that is contained in the repository.
 node.addService(pg.Execute(shell="sh", command="/local/repository/silly.sh"))
