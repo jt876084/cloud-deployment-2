@@ -3,7 +3,7 @@
 echo "This is a silly script" > /tmp/silly.txt
 
 sudo yum clean all
-suo yum -y update
+sudo yum -y update
 sudo yum -y install httpd
 
 sudo firewall-cmd --permanent --add-port=80/tcp
