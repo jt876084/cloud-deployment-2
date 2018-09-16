@@ -20,13 +20,15 @@ request = pc.makeRequestRSpec()
 # Add a raw PC to the request.
 node = request.XenVM("node")
 
-# node.disk_image = "http://mirror.fileplanet.com/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1804.iso"
+# Set the OS image to CentOS7 64bit as a URN to node.disk_image property, URL didn't work idk why
 node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
+
+node.routable_control_ip = True
 
 # Install and execute a script that is contained in the repository.
 node.addService(pg.Execute(shell="sh", command="/local/repository/silly.sh"))
 
-#node.routable_control_ip = ??
+
 
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)
