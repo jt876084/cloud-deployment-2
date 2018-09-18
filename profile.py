@@ -24,7 +24,7 @@ nodeInterface1 = node1.addInterface("if1")
 
 nodeInterface1.component_id = "eth1"
 
-nodeInterface1.addAddress(rspec.IPv4Address("192.168.1.1", "255.255.255.0"))
+nodeInterface1.addAddress(pg.IPv4Address("192.168.1.1", "255.255.255.0"))
 
 link = request.LAN("lan")
 
