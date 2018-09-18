@@ -18,20 +18,38 @@ pc = portal.Context()
 request = pc.makeRequestRSpec()
  
 # Add a raw PC to the request.
-node1 = request.XenVM("node")
+node1 = request.XenVM("node-1")
+node2 = request.XenVM("node-2")
+node3 = request.XenVM("node-3")
+node4 = request.XenVM("node-4")
 
 nodeInterface1 = node1.addInterface("if1")
+nodeInterface2 = node2.addInterface("if2")
+nodeInterface3 = node3.addInterface("if3")
+nodeInterface4 = node4.addInterface("if4")
 
 nodeInterface1.component_id = "eth1"
+nodeInterface2.component_id = "eth2"
+nodeInterface3.component_id = "eth3"
+nodeInterface4.component_id = "eth4"
 
 nodeInterface1.addAddress(pg.IPv4Address("192.168.1.1", "255.255.255.0"))
+nodeInterface2.addAddress(pg.IPv4Address("192.168.1.2", "255.255.255.0"))
+nodeInterface3.addAddress(pg.IPv4Address("192.168.1.3", "255.255.255.0"))
+nodeInterface4.addAddress(pg.IPv4Address("192.168.1.4", "255.255.255.0"))
 
 link = request.LAN("lan")
 
 link.addInterface(nodeInterface1)
+link.addInterface(nodeInterface2)
+link.addInterface(nodeInterface3)
+link.addInterface(nodeInterface4)
 
 # Set the OS image to CentOS7 64bit as a URN to node.disk_image property, URL didn't work idk why
 node1.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
+node2.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
+node3.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
+node4.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
 
 #Public ID Address
 node1.routable_control_ip = True
